@@ -10,19 +10,20 @@ class GuestsController < ApplicationController
         end
     
         def sign_in
-            guest = Guest.find_by(username: params[:username])
+            guest = Guest.find_by(email: params[:email])
             if guest && guest.authenticate(params[:password])
-              render json: { username: guest.username, token: generate_token(id: guest.id), favourites: guest.favourites, bookings: guest.bookings }
+              render json: { id: guest.id, email: guest.email, token: generate_token(id: guest.id), favourite_properties: guest.favourite_properties, bookings: guest.bookings }
             else
               render json: { error: "Username or Password is invalid "}
             end
           end
     
           def validate
-            if get_guest
-              render json: { username: get_guest.username, token: generate_token(id: get_guest.id), favourites: guest.favourites, bookings: guest.bookingss}
+            guest = get_guest
+            if guest
+              render json: { id: guest.id, email: guest.email, token: generate_token(id: guest.id), favourite_properties: guest.favourite_properties, bookings: guest.bookings}
             else
-              render json: { error: "You are not authorized" }
+              render json: { error: "You are not authorized" }, status: :unprocessable_entity
             end
           end
     
@@ -35,6 +36,16 @@ class GuestsController < ApplicationController
               puts "failed"
               render json: guest.errors, status: :unprocessable_entity
             end
+          end
+
+          def favourites 
+            guest = Guest.find(params[:id])
+            render json: guest.favourites
+          end
+
+          def bookings 
+            guest = Guest.find(params[:id])
+            render json: guest.bookings
           end
     
     end
