@@ -11,14 +11,13 @@ class BookingsController < ApplicationController
 
     def new
         @booking = Booking.new
-        @user = User.find(current_user.id)
     end
   
     def create
-        @guest = 
-        @property =
-        @startDate =
-        @endDate =
-        @booking = Booking.create(guest_id: @guest.id, property_id: @property.id , startDate: , endDate: , confirmed: false)
+        @guest = params[:guest_id]
+        @property = params[:property_id]
+        @startDate = params[:startDate]
+        @endDate = params[:endDate]
+        @booking = Booking.create(guest_id: @guest , property_id: @property , startDate: @startDate, endDate: @endDate, confirmed: false)
     end
 end
