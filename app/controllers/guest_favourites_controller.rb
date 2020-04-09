@@ -4,19 +4,14 @@ class GuestFavouritesController < ApplicationController
         render json: guest_favourite
     end
 
-    def index
-        guest_favourites = GuestFavourite.all
-        render json: guest_favourites
-    end
-
     def new
         @guest_favourite = GuestFavourite.new
         @user = User.find(current_user.id)
     end
   
     def create
-        @guest = 
-        @property =
-        @guest_favourite = GuestFavourite.create(guest_id: @guest.id, property_id: @property.id )
+        @guest = params[:guest_id]
+        @property = params[:property_id]
+        @guest_favourite = GuestFavourite.create(guest_id: @guest, property_id: @property)
     end
 end

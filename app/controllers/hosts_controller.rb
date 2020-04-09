@@ -10,19 +10,20 @@ class HostsController < ApplicationController
     end
 
     def sign_in
-        host = Host.find_by(username: params[:username])
+        host = Host.find_by(email: params[:email])
         if host && host.authenticate(params[:password])
-          render json: { username: host.username, token: generate_token(id: host.id), properties: host.properties, bookings: host.bookings }
+          render json: { email: host.email, token: generate_token(id: host.id), properties: host.properties, bookings: host.bookings }
         else
-          render json: { error: "Username or Password is invalid "}
+          render json: { error: "Email or Password is invalid "}
         end
       end
 
       def validate
-        if get_host
-          render json: { username: get_host.username, token: generate_token(id: get_host.id), properties: host.properties, bookings: host.bookings}
+        host = get_host
+        if host
+          render json: { id: host.id, email: host.email, token: generate_token(id: host.id), bookings: host.bookings}
         else
-          render json: { error: "You are not authorized" }
+          render json: { error: "You are not authorized" }, status: :unprocessable_entity
         end
       end
 
@@ -36,5 +37,16 @@ class HostsController < ApplicationController
           render json: host.errors, status: :unprocessable_entity
         end
       end
+
+      def bookings 
+        host = get_host
+        render json: host.bookings, include: [:property, :guest]
+      end
+
+      def properties 
+        host = get_host
+        render json: host.properties
+      end
+
 
 end

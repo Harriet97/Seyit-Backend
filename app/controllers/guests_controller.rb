@@ -39,12 +39,12 @@ class GuestsController < ApplicationController
           end
 
           def favourites 
-            guest = Guest.find(params[:id])
-            render json: guest.favourites
+            guest = get_guest
+            render json: guest.guest_favourites
           end
 
           def bookings 
-            guest = Guest.find(params[:id])
+            guest = get_guest
             render json: guest.bookings
           end
     

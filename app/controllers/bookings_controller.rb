@@ -19,5 +19,6 @@ class BookingsController < ApplicationController
         @startDate = params[:startDate]
         @endDate = params[:endDate]
         @booking = Booking.create(guest_id: @guest , property_id: @property , startDate: @startDate, endDate: @endDate, confirmed: false)
+        render json: @booking
     end
 end

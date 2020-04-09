@@ -30,4 +30,12 @@ class ApplicationController < ActionController::API
         # Attempt to find and return the user with that id, otherwise, this will return nil
         Guest.find_by(id: id)
       end
+
+      def get_host
+      
+        # Decode the token and pull out the user's id from it
+        id = decode_token["id"]
+        # Attempt to find and return the user with that id, otherwise, this will return nil
+        Host.find_by(id: id)
+      end
 end
