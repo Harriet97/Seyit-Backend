@@ -40,13 +40,15 @@ class GuestsController < ApplicationController
 
           def favourites 
             guest = get_guest
-            render json: guest.guest_favourites
+            render json: guest.guest_favourites 
           end
 
           def bookings 
             guest = get_guest
-            render json: guest.bookings
+            render json: guest.bookings, include: :property
+
+          
           end
-    
+
     end
     

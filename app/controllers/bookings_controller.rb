@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
     def show
         booking = Booking.find(params[:id])
-        render json: booking
+        render json: booking, include: [:guest, :property]
     end
 
     def index

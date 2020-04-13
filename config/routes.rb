@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/guests/favourites', to: 'guests#favourites'
   get '/hosts/bookings', to: 'hosts#bookings'
   get '/hosts/properties', to: 'hosts#properties'
+
+  delete "/guests/favourites", to: "guest_favourites#unfavourite"
   
   resources :guest_favourites
   resources :bookings

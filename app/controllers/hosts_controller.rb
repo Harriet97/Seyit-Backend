@@ -40,7 +40,7 @@ class HostsController < ApplicationController
 
       def bookings 
         host = get_host
-        render json: host.bookings, include: [:property, :guest]
+        render json: host.bookings
       end
 
       def properties 

@@ -14,8 +14,7 @@ g3 = Guest.create(first_name: "Felix", last_name: "b", username: "FelixB", email
 g4 = Guest.create(first_name: "Alba", last_name: "b", username: "AlbaB", email: "alba@email.com", password: "blah")
 
 
-h1 = Host.create(first_name: "Luanna", last_name: "b", username: "LuannaB", email: "luanna@email.com", phone_number: "07366475944", password: "blah")
-h2 = Host.create(first_name: "James", last_name: "b", username: "JamesB", email: "james@email.com", phone_number: "07366492733", password: "blah")
+h1 = Host.create(first_name: "Seyit", last_name: "b", username: "SeyitB", email: "seyit@email.com", phone_number: "07366475944", password: "blah")
 
 p1 = Property.create(name: "Cozy One-Bedroom flat in St. John`s Wood", host: h1, postcode: "NW8", location: "Abercorn Place", price: 1750, sleeps: 3, bedrooms: 1, bathrooms: 1, balcony: false, washing_machine: true, kettle: true, coffee_machine: true, fridge: true, microwave: true, kitchenware: true, elevator: true, living_room: true, shower: true, bathtub: false, hairdryer: true, iron: true, hoover: true, mop: true, bedding: true, tv: true, wifi: true)
 p2 = Property.create(name: "Comfortable Three-bedroom flat in Arsenal", host: h1, postcode: "N5", location: "Tywford House", price: 2250, sleeps: 6, bedrooms: 3, bathrooms: 1, balcony: true, washing_machine: true, kettle: true, coffee_machine: true, fridge: true, microwave: true, kitchenware: true, elevator: true, living_room: true, shower: false, bathtub: true, hairdryer: true, iron: true, hoover: true, mop: true, bedding: true, tv: false, wifi: true)
