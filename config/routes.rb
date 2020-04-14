@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/hosts/properties', to: 'hosts#properties'
 
   delete "/guests/favourites", to: "guest_favourites#unfavourite"
+ 
   
   resources :guest_favourites
   resources :bookings

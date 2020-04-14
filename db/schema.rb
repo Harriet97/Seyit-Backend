@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_150949) do
     t.bigint "host_id", null: false
     t.string "postcode"
     t.string "location"
+    t.float "long"
+    t.float "lat"
     t.integer "price"
     t.integer "sleeps"
     t.integer "bedrooms"

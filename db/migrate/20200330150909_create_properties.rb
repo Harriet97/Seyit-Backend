@@ -5,6 +5,8 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.references :host, null: false, foreign_key: true
       t.string :postcode
       t.string :location
+      t.float :long
+      t.float :lat
       t.integer :price
       t.integer :sleeps
       t.integer :bedrooms
