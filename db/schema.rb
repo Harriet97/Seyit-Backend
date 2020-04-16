@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_150949) do
     t.boolean "bedding"
     t.boolean "tv"
     t.boolean "wifi"
+    t.text "images", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["host_id"], name: "index_properties_on_host_id"
