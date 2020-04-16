@@ -29,6 +29,8 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.boolean :bedding
       t.boolean :tv
       t.boolean :wifi
+      t.text :images, array: true, default: []
+      
 
 
       t.timestamps

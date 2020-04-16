@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     def update
         @booking = Booking.find(params[:id])
         @booking.update(confirmed: params[:confirmed])
-        render json: @booking
+        render json: @booking, include: [:guest, :property]
     end
 
     def destroy
