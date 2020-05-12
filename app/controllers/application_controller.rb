@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::API
        # Read our secret from the environemnt variable we stored it in - this will be defined on our machine, not in any of our public code, so we can push this code up to somewhere like GitHub and nobody will know our secret
       def secret
-        "hello"
-        #ENV["MY_SECRET"]
+        # "hello"
+        ENV["MY_SECRET"]
       end
     
       # Generate a JSON Web Token with some data and our secret
